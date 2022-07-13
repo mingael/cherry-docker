@@ -1,0 +1,18 @@
+spring:
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:mysql://cherry-mysql:3306/cherry_db
+    username: cherry
+    password: cherry_pw
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#  session:
+#    # jdbc 타입으로 session 정보 저장
+#    store-type: jdbc
+#    jdbc:
+#      schema: classpath:org/springframework/session/jdbc/schema-mysql.sql\
+#      # 스키마 정보 초기화 - always:초기설정, never:안함
+#      initialize-schema: never

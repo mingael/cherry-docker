@@ -1,0 +1,11 @@
+Create table user (
+id bigint primary key auto_increment,
+password varchar(100) not null,
+nickname varchar(20) not null,
+username varchar(20),
+reg_dtm timestamp default current_timestamp,
+mod_dtm timestamp default current_timestamp,
+email varchar(50) not null,
+is_delete varchar(1) default 'n',
+last_login_dtm timestamp default current_timestamp
+);

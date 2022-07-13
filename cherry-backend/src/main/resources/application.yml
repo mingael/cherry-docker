@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: dev
+#    active: prod
+  data:
+    web:
+      pageable:
+        # Page Start Number 1
+        one-indexed-parameters: true
+  jpa:
+    show_sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    open-in-view: false
