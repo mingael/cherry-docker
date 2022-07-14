@@ -27,4 +27,12 @@ class AccountController(private val accountService: AccountService) {
         }
         return ResponseEntity.ok(mapOf("result" to "FAIL"))
     }
+
+    @PostMapping("permanently-delete")
+    fun permanentlyDelete(@RequestParam id: Long): ResponseEntity<Any> {
+        if(accountService.permanentlyDelete(id)) {
+            return ResponseEntity.ok(mapOf("result" to "SUCCESS"))
+        }
+        return ResponseEntity.ok(mapOf("result" to "FAIL"))
+    }
 }

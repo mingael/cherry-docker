@@ -10,9 +10,15 @@ plugins {
 	kotlin("plugin.jpa") version kotlinVersion
 	kotlin("kapt") version kotlinVersion
 	kotlin("plugin.allopen") version kotlinVersion
+	kotlin("plugin.noarg") version kotlinVersion
 }
 
 allOpen {
+	annotation("javax.persistence.Entity")
+	annotation("javax.persistence.MappedSuperClass")
+	annotation("javax.persistence.Embeddable")
+}
+noArg {
 	annotation("javax.persistence.Entity")
 	annotation("javax.persistence.MappedSuperClass")
 	annotation("javax.persistence.Embeddable")
@@ -43,6 +49,9 @@ dependencies {
 	implementation("com.querydsl:querydsl-jpa:$querydslVersion")
 	kapt("com.querydsl:querydsl-apt:$querydslVersion:jpa")
 	kapt("org.springframework.boot:spring-boot-configuration-processor")
+
+	// BCrypt
+	implementation("org.springframework.boot:spring-boot-starter-security")
 
 	testImplementation(kotlin("test"))
 	testImplementation("com.h2database:h2:1.4.199")

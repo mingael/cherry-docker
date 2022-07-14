@@ -10,12 +10,12 @@ import javax.persistence.MappedSuperclass
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener::class)
-abstract class TimeStampedEntity (
+abstract class TimeStampedEntity {
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    var regDtm: LocalDateTime = LocalDateTime.now(),
+    private var regDtm: LocalDateTime = LocalDateTime.now()
 
     @LastModifiedDate
     @Column(nullable = false)
-    var modDtm: LocalDateTime = LocalDateTime.now()
-)
+    private var modDtm: LocalDateTime = LocalDateTime.now()
+}

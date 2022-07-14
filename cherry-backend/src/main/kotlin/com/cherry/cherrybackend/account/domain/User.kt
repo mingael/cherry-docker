@@ -15,16 +15,25 @@ import javax.persistence.Table
 @Entity
 @Table(name = "user")
 class User(
+    @Column(length = 20)
     var nickname: String,
 
+    @Column(length = 100)
     var password: String,
 
+    @Column(length = 50)
     var email: String,
 
+    @Column(length = 1)
     @Convert(converter = FlagConverter::class)
     var isDelete: Flag = Flag.TRUE,
+
+    @Column(length = 20)
+    var username: String = "",
+
+    var lastLoginDtm: LocalDateTime = LocalDateTime.now(),
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = 0L
-)
+): TimeStampedEntity()

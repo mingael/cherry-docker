@@ -4,25 +4,16 @@ import com.cherry.cherrybackend.account.controller.request.AccountSignUpRequest
 import com.cherry.cherrybackend.account.domain.User
 import com.cherry.cherrybackend.account.repository.UserRepository
 import com.querydsl.core.QueryFactory
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 
-@Service
-class AccountService(private val userRepository: UserRepository) {
 
-    fun register(request: AccountSignUpRequest): Long {
-        val user = User(
-            email = request.email,
-            password = request.password,
-            nickname = request.nickname)
-        return userRepository.save(user).id
-    }
+interface AccountService {
 
-    fun leave(id: Long): Boolean {
-        userRepository.deleteById(id)
+    fun register(request: AccountSignUpRequest): Long
 
-        if(userRepository.findById(id).isEmpty) {
-           return true
-        }
-        return false
-    }
+    fun leave(id: Long): Boolean
+
+    fun permanentlyDelete(id: Long): Boolean
 }

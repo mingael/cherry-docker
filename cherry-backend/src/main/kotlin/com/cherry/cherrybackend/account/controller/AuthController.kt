@@ -1,7 +1,7 @@
-package com.cherry.cherrybackend.auth.controller
+package com.cherry.cherrybackend.account.controller
 
-import com.cherry.cherrybackend.auth.controller.request.AuthSignInRequest
-import com.cherry.cherrybackend.auth.service.AuthService
+import com.cherry.cherrybackend.account.controller.request.AuthSignInRequest
+import com.cherry.cherrybackend.account.service.AuthService
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
@@ -16,7 +16,11 @@ class AuthController (private val authService: AuthService) {
     @PostMapping("sign-in-confirm")
     fun singIn(request: AuthSignInRequest): ResponseEntity<Any> {
         val auth = authService.signInConfirm(request)
-        return ResponseEntity.ok(auth)
+        if(auth != null) {
+            return ResponseEntity.ok(auth)
+        }
+
+        return ResponseEntity.ok(mapOf("result" to "FAIL"))
     }
 
     @GetMapping("sign-out")

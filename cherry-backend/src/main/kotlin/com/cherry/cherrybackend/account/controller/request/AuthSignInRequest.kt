@@ -1,4 +1,4 @@
-package com.cherry.cherrybackend.auth.controller.request
+package com.cherry.cherrybackend.account.controller.request
 
 data class AuthSignInRequest(
     val email: String,

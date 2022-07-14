@@ -1,6 +1,6 @@
-package com.cherry.cherrybackend.auth.service
+package com.cherry.cherrybackend.account.service
 
-import com.cherry.cherrybackend.auth.controller.request.AuthSignInRequest
+import com.cherry.cherrybackend.account.controller.request.AuthSignInRequest
 import com.cherry.cherrybackend.account.domain.User
 
 interface AuthService {
