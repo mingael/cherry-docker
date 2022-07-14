@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface UserRepository: JpaRepository<User, Long> {
 
-    fun findByEmailAndIsDelete(email: String, isDelete: Flag = Flag.TRUE): User?
+    fun findByEmailAndIsDelete(email: String, isDelete: Flag = Flag.FALSE): User?
 
-    fun findByIdAndIsDelete(id: Long, isDelete: Flag = Flag.TRUE): User?
+    fun findByIdAndIsDelete(id: Long, isDelete: Flag = Flag.FALSE): User?
 }

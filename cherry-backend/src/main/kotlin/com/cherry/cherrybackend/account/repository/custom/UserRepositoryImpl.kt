@@ -21,7 +21,7 @@ class UserRepositoryImpl: UserRepoCustom, CustomQuerydslRepositorySupport(User::
 
     override fun leave(id: Long): Boolean {
         val result: Long = query.update(user)
-                .set(user.isDelete, Flag.FALSE)
+                .set(user.isDelete, Flag.TRUE)
                 .where(user.id.eq(id))
                 .execute()
 

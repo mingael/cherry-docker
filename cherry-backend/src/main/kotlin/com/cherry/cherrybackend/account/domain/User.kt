@@ -26,7 +26,7 @@ class User(
 
     @Column(length = 1)
     @Convert(converter = FlagConverter::class)
-    var isDelete: Flag = Flag.TRUE,
+    var isDelete: Flag = Flag.FALSE,
 
     @Column(length = 20)
     var username: String = "",
