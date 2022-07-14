@@ -12,7 +12,7 @@ class UserRepositoryImpl: UserRepoCustom, CustomQuerydslRepositorySupport(User::
 
     val user: QUser = QUser.user
 
-    override fun lastLoginDtm(id: Long) {
+    override fun updateLastLoginDtm(id: Long) {
         query.update(user)
                 .set(user.lastLoginDtm, LocalDateTime.now())
                 .where(user.id.eq(id))

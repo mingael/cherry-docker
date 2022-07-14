@@ -5,7 +5,7 @@ import java.time.LocalDateTime
 
 interface UserRepoCustom {
 
-    fun lastLoginDtm(id: Long)
+    fun updateLastLoginDtm(id: Long)
 
     fun leave(id: Long): Boolean
 }

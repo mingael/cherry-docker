@@ -27,7 +27,7 @@ class AuthServiceImpl(
             return null
         }
 
-        userRepoCustom.lastLoginDtm(user.id)
+        userRepoCustom.updateLastLoginDtm(user.id)
 
         return user
     }
