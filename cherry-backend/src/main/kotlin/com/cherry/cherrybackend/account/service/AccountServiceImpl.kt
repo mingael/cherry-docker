@@ -15,6 +15,7 @@ class AccountServiceImpl(
     private val userRepository: UserRepository
 ): AccountService {
 
+    @Transactional
     override fun register(request: AccountSignUpRequest): Long {
         if(!PasswordProvider.regexConfirm(request.password)) {
             return 0
@@ -39,6 +40,7 @@ class AccountServiceImpl(
         return userRepository.leave(id)
     }
 
+    @Transactional
     override fun permanentlyDelete(id: Long): Boolean {
         userRepository.deleteById(id)
         if(userRepository.findById(id).isEmpty) {
