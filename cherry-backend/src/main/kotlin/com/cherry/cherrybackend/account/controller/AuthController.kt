@@ -2,6 +2,7 @@ package com.cherry.cherrybackend.account.controller
 
 import com.cherry.cherrybackend.account.controller.request.AuthSignInRequest
 import com.cherry.cherrybackend.account.service.AuthService
+import org.apache.tomcat.util.http.ResponseUtil
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
@@ -23,11 +24,4 @@ class AuthController (private val authService: AuthService) {
         return ResponseEntity.ok(mapOf("result" to "FAIL"))
     }
 
-    @GetMapping("sign-out")
-    fun singOut(request: HttpServletRequest): ResponseEntity<Any> {
-        if(authService.signOut()) {
-            return ResponseEntity.ok(mapOf("result" to "SUCCESS"))
-        }
-        return ResponseEntity.ok(mapOf("result" to "FAIL"))
-    }
 }
