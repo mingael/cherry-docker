@@ -7,5 +7,4 @@ interface AuthService {
 
     fun signInConfirm(request: AuthSignInRequest): User?
 
-    fun signOut(): Boolean
 }

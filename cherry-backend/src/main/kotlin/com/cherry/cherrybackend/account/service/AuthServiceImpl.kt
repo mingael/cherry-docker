@@ -32,9 +32,4 @@ class AuthServiceImpl(
         return user
     }
 
-    override fun signOut(): Boolean {
-        return true
-    }
-
-
 }
