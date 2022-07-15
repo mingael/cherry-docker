@@ -7,7 +7,6 @@ import org.apache.catalina.User
 import org.springframework.stereotype.Repository
 import java.time.LocalDateTime
 
-@Repository
 class UserRepositoryImpl: UserRepoCustom, CustomQuerydslRepositorySupport(User::class.java) {
 
     val user: QUser = QUser.user

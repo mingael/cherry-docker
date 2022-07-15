@@ -10,9 +10,9 @@ import org.springframework.transaction.annotation.Transactional
 import org.springframework.util.ObjectUtils
 
 @Service
+@Transactional(readOnly = true)
 class AccountServiceImpl(
-    private val userRepository: UserRepository,
-    private val userRepoCustom: UserRepoCustom
+    private val userRepository: UserRepository
 ): AccountService {
 
     override fun register(request: AccountSignUpRequest): Long {
@@ -36,7 +36,7 @@ class AccountServiceImpl(
         if(ObjectUtils.isEmpty(userRepository.findByIdAndIsDelete(id))) {
             return false
         }
-        return userRepoCustom.leave(id)
+        return userRepository.leave(id)
     }
 
     override fun permanentlyDelete(id: Long): Boolean {

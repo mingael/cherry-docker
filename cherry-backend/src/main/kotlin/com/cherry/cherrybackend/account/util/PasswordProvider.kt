@@ -10,6 +10,10 @@ class PasswordProvider {
 
         private val PASSWORD_REGEX = """^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$&?])[\w@#$&?]{8,15}$""".toRegex()
 
+        /**
+         * 암호화
+         * @param passwd 비밀번호
+         */
         fun encrypt(passwd: String): String {
             return passwordEncoder.encode(passwd)
         }

@@ -11,8 +11,7 @@ import org.springframework.util.ObjectUtils
 
 @Service
 class AuthServiceImpl(
-        private val userRepository: UserRepository,
-        private val userRepoCustom: UserRepoCustom
+        private val userRepository: UserRepository
 ): AuthService {
 
     @Transactional
@@ -27,7 +26,7 @@ class AuthServiceImpl(
             return null
         }
 
-        userRepoCustom.updateLastLoginDtm(user.id)
+        userRepository.updateLastLoginDtm(user.id)
 
         return user
     }
